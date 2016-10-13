@@ -61,9 +61,11 @@ class UserController extends Controller
         return redirect()->action('UserController@getIndex');
     }
 
-    public function getSopoteTransferencia($doc)
+    public function getSoporteTransferencia($doc)
     {
-        $view = view('user.comprobante');
+        $documento = Documento::find($doc);
+        $datos = ['documento'=>$documento];
+        $view = view('user.comprobante',$datos);
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view)->setPaper('letter')->setWarnings(false);
         return $pdf->stream('comprobante.pdf');

@@ -100,7 +100,7 @@ Inicio
                               @if(Session::has('comprobante'))
                                     <div class="alert alert-success alert-dismissable">
                                           <button type="button" data-dismiss="alert" aria-hidden="true" class="close">&times;</button>
-                                          <strong>Comprobante</strong> Se ha registrado la información, <a href="{{action('UserController@getSopoteTransferencia',['doc'=>Session::get('comprobante')])}}" target="blank">Ver comprobante</a>
+                                          <strong>Comprobante</strong> Se ha registrado la información, <a href="{{action('UserController@getSoporteTransferencia',['doc'=>Session::get('comprobante')])}}" target="blank">Ver comprobante</a>
                                     </div>
                               @endif
 
@@ -135,7 +135,7 @@ Inicio
 					<li class="out">
 						<img src="{{asset('back/images/avatar/48.jpg')}}" class="avatar img-responsive" />
 						<div class="message">
-							<span class="chat-arrow"></span><a href="#" class="chat-name">{{$documento->tipodocs->tipo}}</a>&nbsp;
+							<span class="chat-arrow"></span><a href="{{action('UserController@getSoporteTransferencia',['doc'=>$documento->id])}}" class="chat-name" target="blank"><i class="fa fa-file"></i> {{$documento->tipodocs->tipo}}</a>&nbsp;
 							<span class="chat-datetime"></span>
 							<span class="chat-body">por: {{$documento->user->nombre}}, Área: {{$documento->user->area->area}}, Folio: {{$documento->nfolio}}</span>
 						</div>
